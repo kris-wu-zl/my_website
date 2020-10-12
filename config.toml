@@ -97,7 +97,7 @@ disqusShortname = ""
       title = "Kris the runner"
       subtitle = "He ran a 50km as a birthday gift to self"
       image = "pic01.jpg"
-      url = "projects/project1/kris"
+      url = "projects/project1/"
 
     [[params.tiles.showcase]]
       title = "Tempus"
