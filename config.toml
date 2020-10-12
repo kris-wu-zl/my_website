@@ -2,12 +2,8 @@
 baseURL = "https://kris-wu.netlify.app/"
 languageCode = "en-us"
 title = "Kris Wu's Humble Site"
-theme = "Kris Wu"
-# blogdown::serve_site()
-# git add -A
-# git commit -m "new changes"
-# git pull
-# git push
+theme = "Forty"
+
  
 # Enter your tracking code to enable Google Analytics
 googleAnalytics = ""
