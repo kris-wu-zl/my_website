@@ -1,9 +1,14 @@
 # Site settings
 baseURL = "https://kris-wu.netlify.app/"
 languageCode = "en-us"
-title = "Kris Wu Site"
-theme = "forty"
-
+title = "Kris Wu's Humble Site"
+theme = "Kris Wu"
+# blogdown::serve_site()
+# git add -A
+# git commit -m "new changes"
+# git pull
+# git push
+ 
 # Enter your tracking code to enable Google Analytics
 googleAnalytics = ""
 
@@ -32,13 +37,13 @@ disqusShortname = ""
 
   # 404 error customization
   [params.error404]
-    heading = "Page couldn't be found"
-    text = "Please visit [this page](/)"
+    heading = "You are on the wrong territory"
+    text = "Please go back to [https://kris-wu.netlify.app/]"
 
   # Navigation Section
   [params.navigation]
-    title = "Forty"
-    subtitle = "By HTML5 Up"
+    title = "Welcome"
+    # subtitle = "By HTML5 Up"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -49,6 +54,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "Blogs"
+      # name = "My Work"
       url = "blogs"
 
     [[params.navigation.links]]
@@ -82,8 +88,8 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Welcome to Kris' humble page"
-    subtitle = "Imagine you're clueless and lost in a jungle, remember, sky is the only limit"
-    buttonText = "More about me"
+    subtitle = "Imagine you're lost in a jungle, don't panic. Remember, sky is your only limit."
+    buttonText = "About my work"
 
 
   # Tiles Section
