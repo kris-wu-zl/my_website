@@ -1,0 +1,29 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-13"
+description: Test.
+draft: false
+image: banner.jpg
+keywords: "About my running"
+slug: blog6
+title: Hi, I'm Kris Wu
+---
+
+## the Marathoner
+I have spent almost *half* of my life away from my family. Having studied in China, Singapore, Europe, the US, I do have acquired a **global awareness**.
+
+My proudest achievements are not academics, internships, or photographs taken. It is my **jogging journey**. I did my first ultra-marathon (50km) at age 20. I consider this the best gift bestowed upon self. Over the years, I did travel and ran a lot.
+
+Top locations that I have ran across
+
+1) Hong Kong 1300 km
+2) Singapore 600 km
+3) Denmark 240 km
+4) London 113 km
+5) Paris 68 km
+
+I have not been updating as much about my running experiences. (because I am not running a lot these days, what a shame!)
+
+Nonetheless, feel free to check out my [instagram](https://www.instagram.com/kriswu995/)
