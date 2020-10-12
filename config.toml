@@ -69,13 +69,14 @@ disqusShortname = ""
 
     # Button Style 1
     [[params.navigation.button1]]
-      name = "Get Started"
+      name = "Look at work"
       url = "blogs"
 
     # Button Style 2
-    [[params.navigation.button2]]
-      name = "Log In"
-      url = "#"
+    # [[params.navigation.button2]]
+      #name = "Log In"
+      #url = "#"
+
 
 
   # Banner section
@@ -84,7 +85,7 @@ disqusShortname = ""
     # the 'static/img' folder.
     title = "Welcome to Kris' humble page"
     subtitle = "Imagine you're lost in a jungle, don't panic. Remember, sky is your only limit."
-    buttonText = "About my work"
+    buttonText = "About me"
 
 
   # Tiles Section
@@ -93,8 +94,8 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Aliquam"
-      subtitle = "Ipsum Dolor Sit Amet"
+      title = "Kris the runner"
+      subtitle = "He ran a 50km as a birthday gift to self"
       image = "pic01.jpg"
       url = "blogs/aliquam"
 
@@ -152,7 +153,7 @@ disqusShortname = ""
   # Contact section
   [params.contact]
     enable = true
-    buttonSend = "Send message"
+    buttonSend = "Send"
     buttonClear = "Clear"
 
     # Since this template is static, the contact form uses www.formspree.io as a
@@ -176,44 +177,44 @@ disqusShortname = ""
     email = "zwu.mfa2021@london.edu"
 
     [[params.contact.phone]]
-    title = "Phone"
-    phone = "(000) 000-0000 x1234"
+    title = "HP"
+    phone = "(44) 7539-082-313"
 
     [[params.contact.address]]
-    title = "Address"
-    street = "Street"
-    city = "City, ST 00000"
-    country = "Country"
+    title = "Flat 3"
+    street = "49-50 Chagford Street"
+    city = "London, NW1 6EB"
+    country = "the United Kingdom"
 
   # Footer section
   [params.footer]
-    enable = true
-    copyright = "Company Name"
+    # enable = true
+    # copyright = "Company Name"
 
     # Uses font awesome icons
     [[params.footer.social]]
-      icon = "fa-twitter"
-      url= "https://www.twitter.com"
-      label = "Twitter"
+      #icon = "fa-twitter"
+      #url= "https://www.twitter.com"
+      #label = "Twitter"
 
     [[params.footer.social]]
-      icon = "fa-facebook"
-      url= "https://www.facebook.com"
-      label = "Facebook"
+      #icon = "fa-facebook"
+      #url= "https://www.facebook.com/wuzhonglong"
+      #label = "Facebook"
 
     [[params.footer.social]]
-      icon = "fa-instagram"
-      url= "https://www.instagram.com"
-      label = "Instagram"
+     # icon = "fa-instagram"
+      # url= "https://www.instagram.com/kriswu995/"
+      # label = "Instagram"
     
     [[params.footer.social]]
       icon = "fa-github"
-      url= "https://www.github.com"
+      url= "https://github.com/kris-wu-zl/"
       label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "https://www.linkedin.com"
+      url= "https://www.linkedin.com/in/zhonglong-wu-74a1a1b4/"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
