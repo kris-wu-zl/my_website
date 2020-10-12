@@ -5,7 +5,7 @@ categories:
 date: "2020-10-13"
 description: Test.
 draft: false
-image: banner.jpg
+image: paris.jpg
 keywords: "About my running"
 slug: blog6
 title: Hi, I'm Kris Wu
