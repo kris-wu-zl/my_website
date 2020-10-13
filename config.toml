@@ -98,31 +98,31 @@ disqusShortname = ""
       url = "blogs/runningbio"
 
     [[params.tiles.showcase]]
-      title = "Fuel efficiency and engine"
+      title = "Fuel Efficiency and Engine Capacity"
       subtitle = "The trade-off between power and environmental protection."
       image = "trailer.jpg"
       url = "blogs/fuel_efficiency"
 
     [[params.tiles.showcase]]
-      title = "Love for alcohol"
+      title = "Love for Alcohol"
       subtitle = "Which country loves it the most?"
       image = "wine_dinner.jpg"
       url = "projects/alcohol"
 
     [[params.tiles.showcase]]
-      title = "Movie gross and rating"
+      title = "Movie Gross and Rating"
       subtitle = "See how your favorite directors and genres perform at box office and ratings."
       image = "up_in_the_air.jpg"
       url = "projects/movies"
 
     [[params.tiles.showcase]]
-      title = "Covid death likelihood"
+      title = "Death Likelihood with Covid-19"
       subtitle = "Do comorbidities or ICU admissions mean a death sentence?"
       image = "icu.jpg"
       url = "projects/covid"
 
     [[params.tiles.showcase]]
-      title = "Stock return analysis"
+      title = "Stock Return Analysis"
       subtitle = "How did NYSE-listed stocks fare?"
       image = "shanghai.jpg"
       url = "projects/stock"
