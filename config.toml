@@ -100,10 +100,10 @@ disqusShortname = ""
       url = "blogs/blog6"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
+      title = "Fuel efficiency and engine"
+      subtitle = "The trade-off to take between power and environmental protection"
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "blogs/blog7"
 
     [[params.tiles.showcase]]
       title = "Magna"

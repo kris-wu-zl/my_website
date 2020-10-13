@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Your description">
+	<meta name="author" content="Kris Wu">
+	<meta name="generator" content="Hugo 0.76.3" />
+	<title>Fuel efficiency and engine &middot; Kris Wu&#39;s Humble Site</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Welcome</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">Blogs</a></li>
+            
+                <li><a href="/blogs/ipsum">Generic Blog</a></li>
+            
+                <li><a href="/elements.html">Elements</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Look at work</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Fuel efficiency and engine</h1>
+                            </header>
+                            
+                            
+
+
+<p>Although intuitive, one may conduct a statistical analysis on how engine size impact fuel efficiency. In order to do that, we must first call out the packages.</p>
+<div id="load-packages" class="section level1">
+<h1>Load packages</h1>
+<pre class="r"><code># Load ggplot2, dplyr, and all the other tidyverse packages
+library(tidyverse)  
+library(mosaic)
+library(lubridate)
+library(fivethirtyeight)</code></pre>
+</div>
+<div id="glimpse-dataframe" class="section level1">
+<h1>Glimpse Dataframe</h1>
+<p>Next, it is good practice to take a look at the dataframe mpg using a <code>glimpse</code> function</p>
+<pre class="r"><code># Have a look at how the dataframe is structured
+glimpse(mpg)</code></pre>
+<pre><code>## Rows: 234
+## Columns: 11
+## $ manufacturer &lt;chr&gt; &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, …
+## $ model        &lt;chr&gt; &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4 quattro&quot;, …
+## $ displ        &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2…
+## $ year         &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 20…
+## $ cyl          &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8,…
+## $ trans        &lt;chr&gt; &quot;auto(l5)&quot;, &quot;manual(m5)&quot;, &quot;manual(m6)&quot;, &quot;auto(av)&quot;, &quot;aut…
+## $ drv          &lt;chr&gt; &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;4&quot;, &quot;4&quot;, &quot;4&quot;, &quot;4&quot;, &quot;…
+## $ cty          &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, …
+## $ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, …
+## $ fl           &lt;chr&gt; &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;…
+## $ class        &lt;chr&gt; &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;…</code></pre>
+<p>We can observe that the dataframe has 234 rows and 11 columns.
+manufacturer specifies the brand.
+model specifies the model name under the brand
+displ means engine displacement, in litres
+year is the year of manufacture of the model
+cyl records the number of cylinders of the engine
+trans specifies type of transmission
+drv means the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd
+cty records the driving fuel efficiency in cities: city miles per gallon
+hwy records the driving fuel efficiency on highways: highway miles per gallon
+fl is fuel type
+class is “type” of car</p>
+</div>
+<div id="visualize-relationship-between-highway-fuel-efficiency-and-number-of-cylinder" class="section level1">
+<h1>Visualize relationship between highway fuel efficiency and number of cylinder</h1>
+<p>If you liked the “Need for Speed” feeling of fastness, you probably want more cylinders in the car engine to power a hasty start. What if you are yet environmentally conscious and want a good fuel efficiency as well? Is there a trade-off?</p>
+<pre class="r"><code># Make a scatterplot of hwy vs cyl
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = cyl, y = hwy))</code></pre>
+<p><img src="/blogs/blog7_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+Clearly, there is a trade-off! It looks like hastier accelerations with more cylinders cost more fuels!</p>
+</div>
+<div id="visualize-relationship-between-highway-fuel-efficiency-and-displacement" class="section level1">
+<h1>Visualize relationship between highway fuel efficiency and displacement</h1>
+<p>A better approximation of engine power, rather than cylinder number, is engine displacement, i.e. how much fuel gets absorbed into the engine in one round of piston motion. How may fuel efficiency be correlated with engine displacement? Thus, if we want to check our carbon footprint, do we still want to buy cars with immense fuel displacement? Does the type of car matter in our analysis?</p>
+<pre class="r"><code># Make a scatterplot of hwy vs cyl
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))</code></pre>
+<p><img src="/blogs/blog7_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+Hooyay! It looks like compact cars have the highest fuel efficiency. No wonder you see them clouding around in Europe! And SUVs are probably the least efficient behemoths. But if you like to conquer hills, muds, and prairies, have them around. 2 seaters are sports cars. Looks like they are the outliers at high range of displacement. But, consider your pocket and road conditions before purchase!</p>
+<p>Read <a href="http://r4ds.had.co.nz/data-visualisation.html">Chapter 3 of R for Data Science</a> and complete the following exercises:</p>
+<ul>
+<li><a href="http://r4ds.had.co.nz/data-visualisation.html#exercises">3.2.4</a>: Questions 1–5</li>
+<li><a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-1">3.3.1</a>: Questions 1–5</li>
+<li><a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-2">3.5.1</a>: Questions 1–4</li>
+<li><a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-3">3.6.1</a>: Questions 1–5</li>
+<li><a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-5">3.8.1</a>: Questions 1 and 2</li>
+</ul>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

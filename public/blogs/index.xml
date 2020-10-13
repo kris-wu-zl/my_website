@@ -8,6 +8,17 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 31 Oct 2017 22:27:21 -0500</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Fuel efficiency and engine</title>
+      <link>/blogs/blog7/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog7/</guid>
+      <description>Although intuitive, one may conduct a statistical analysis on how engine size impact fuel efficiency. In order to do that, we must first call out the packages.
+Load packages # Load ggplot2, dplyr, and all the other tidyverse packages library(tidyverse) library(mosaic) library(lubridate) library(fivethirtyeight)  Glimpse Dataframe Next, it is good practice to take a look at the dataframe mpg using a glimpse function
+# Have a look at how the dataframe is structured glimpse(mpg) ## Rows: 234 ## Columns: 11 ## $ manufacturer &amp;lt;chr&amp;gt; &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, … ## $ model &amp;lt;chr&amp;gt; &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4 quattro&amp;quot;, … ## $ displ &amp;lt;dbl&amp;gt; 1.</description>
+    </item>
+    
+    <item>
       <title>Hi, I&#39;m Kris Wu</title>
       <link>/blogs/blog6/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
