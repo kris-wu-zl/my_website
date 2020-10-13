@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Kris Wu&#39;s Humble Site</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on Kris Wu&#39;s Humble Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hi, I&#39;m Kris Wu</title>
+      <link>/projects/project1/blog6/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/blog6/</guid>
+      <description>the Marathoner I have spent almost half of my life away from my family. Having studied in China, Singapore, Europe, the US, I do have acquired a global awareness.
+My proudest achievements are not academics, internships, or photographs taken. It is my jogging journey. I did my first ultra-marathon (50km) at age 20. I consider this the best gift bestowed upon self. Over the years, I did travel and ran a lot.</description>
+    </item>
+    
+  </channel>
+</rss>
