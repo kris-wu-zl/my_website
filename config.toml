@@ -39,13 +39,13 @@ disqusShortname = ""
   [params.navigation]
     title = "Welcome"
     # subtitle = "By HTML5 Up"
-    menu = "Menu"
+    # menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
 
     [[params.navigation.links]]
-      name = "Home"
-      url = "#"
+     name = "Home"
+     url = "#"
 
     # [[params.navigation.links]]
       #name = "Blogs"
@@ -87,7 +87,7 @@ disqusShortname = ""
 
 
   # Tiles Section
-  [params.tiles]
+   [params.tiles]
     enable = true
     # Display your showcases here.
     
@@ -139,8 +139,8 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "Staying Positive!"
-    subtitle = """I clearly know that I appear like a primary school student making up this page. 
-    But I am still motivated to improve my R skills. After all, data science, programming are competencies of the 21st century,
+    subtitle = """I clearly know that I appear like a novice making up this page. 
+    But I am still motivated to improve my R skills. After all, data science and programming are competencies of the 21st century,
     I do not want to lag behind in flows of time. We will see each other soon in better pages!
     Cheers and see you!"""
     buttonText = "Back to top"
