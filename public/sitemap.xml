@@ -8,17 +8,12 @@
   </url>
   
   <url>
-    <loc>/blogs/fuel_efficiency/</loc>
-    <lastmod>2020-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blogs/runningbio/</loc>
     <lastmod>2020-10-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/blogs/fuel_efficiency/</loc>
     <lastmod>2020-10-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,17 +23,22 @@
   </url>
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/projects/</loc>
     <lastmod>2020-10-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/stock/</loc>
+    <loc>/projects/alcohol/</loc>
     <lastmod>2020-10-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/alcohol/</loc>
+    <loc>/projects/stock/</loc>
     <lastmod>2020-10-13T00:00:00+00:00</lastmod>
   </url>
   

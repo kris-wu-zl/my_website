@@ -18,7 +18,7 @@ Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyve
     </item>
     
     <item>
-      <title>Movie gross and ratings</title>
+      <title>Is there a correlation between movie gross revenue and ratings?</title>
       <link>/projects/movies/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
@@ -28,22 +28,22 @@ Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyve
     </item>
     
     <item>
-      <title>Return of stocks</title>
-      <link>/projects/stock/</link>
-      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/stock/</guid>
-      <description>As a finance student, it is interesting to look at time series data and decide which index to invest. We shall see, for this page, how the NYSE-listed stocks performed.
-Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) First, it is a good practice to see what example industries the stocks belong to.</description>
-    </item>
-    
-    <item>
       <title>Which country is the best sales destination for alcohol?</title>
       <link>/projects/alcohol/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/alcohol/</guid>
       <description>I was talking to a German friend one day about how good German are at drinking alcohol, he said “the Chinese moutai is nothing”. While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine.</description>
+    </item>
+    
+    <item>
+      <title>Which stock has the best return per unit risk?</title>
+      <link>/projects/stock/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/stock/</guid>
+      <description>As a finance student, it is interesting to look at time series data and decide which index to invest. We shall see, for this page, how the NYSE-listed stocks performed.
+Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) First, it is a good practice to see what example industries the stocks belong to.</description>
     </item>
     
   </channel>

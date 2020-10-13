@@ -1,5 +1,5 @@
 ---
-title: "Movie gross and ratings"
+title: "Is there a correlation between movie gross revenue and ratings?"
 author: "Kris"
 date: "`r Sys.Date()`"
 output:
