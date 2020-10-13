@@ -49,6 +49,7 @@ If you liked the "Need for Speed" feeling of fastness, you probably want more cy
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = cyl, y = hwy))
 ```
+
 Clearly, there is a trade-off! It looks like hastier accelerations with more cylinders cost more fuels!
 
 # Visualize relationship between highway fuel efficiency and displacement
@@ -59,6 +60,7 @@ A better approximation of engine power, rather than cylinder number, is engine d
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
+
 Hooyay! It looks like compact cars have the highest fuel efficiency. No wonder you see them clouding around in Europe! And SUVs are probably the least efficient behemoths. But if you like to conquer hills, muds, and prairies, have them around. 2 seaters are sports cars. Looks like they are the outliers at high range of displacement. But, consider your pocket and road conditions before purchase!
 
 

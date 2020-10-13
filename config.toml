@@ -96,14 +96,14 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Kris the runner"
       subtitle = "He ran a 50km as a birthday gift to self"
-      image = "pic01.jpg"
-      url = "blogs/blog6"
+      image = "ultramarathon.jpg"
+      url = "blogs/runningbio"
 
     [[params.tiles.showcase]]
       title = "Fuel efficiency and engine"
       subtitle = "The trade-off to take between power and environmental protection"
-      image = "pic02.jpg"
-      url = "blogs/blog7"
+      image = "trailer.jpg"
+      url = "blogs/fuel_efficiency"
 
     [[params.tiles.showcase]]
       title = "Magna"
