@@ -97,7 +97,7 @@ disqusShortname = ""
       title = "Kris the runner"
       subtitle = "He ran a 50km as a birthday gift to self"
       image = "ultramarathon.jpg"
-      url = "blogs/running"
+      url = "blogs/blog7"
 
     [[params.tiles.showcase]]
       title = "Fuel efficiency and engine"
