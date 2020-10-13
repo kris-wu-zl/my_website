@@ -1,0 +1,206 @@
+---
+title: "Return of Stocks"
+author: "Kris"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+---
+
+As a finance student, it is interesting to look at time series data and decide which index to invest. We shall see, for this page, how the NYSE-listed stocks performed.
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+## Load data packages
+
+```{r load-libraries, warning=FALSE, message=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest)    # scrape websites
+library(purrr)  
+library(lubridate) #to handle dates
+```
+
+
+## Load data
+
+```{r load_nyse_data, message=FALSE, warning=FALSE}
+nyse <- read_csv(here::here("data","nyse.csv"))
+```
+
+First, it is a good practice to see what example industries the stocks belong to.
+
+## Number of companies by sector 
+
+```{r}
+companies_per_sector <- nyse %>% 
+  group_by(sector) %>%
+  summarize(count=n()) %>%
+  arrange(desc(count))
+companies_per_sector
+```
+
+## Visualize number of companies by sector 
+
+```{r}
+bar <- companies_per_sector %>% 
+  ggplot(aes(y=reorder(sector,count),x=count))+
+         geom_col()+
+  labs(y="Sector", x="# of Companies",title="Number of Companies per Sector")
+bar
+```
+
+For demonstration purpose, rather than analyzing company one by one, let's look at two indexes Dow Jones Industrials and S&P 500.
+
+## Load DJIA and SPY data
+
+```{r, tickers_from_wikipedia}
+
+djia_url <- "https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average"
+
+#get tables that exist on URL
+tables <- djia_url %>% 
+  read_html() %>% 
+  html_nodes(css="table")
+
+
+# parse HTML tables into a dataframe called djia. 
+# Use purr::map() to create a list of all tables in URL
+djia <- map(tables, . %>% 
+               html_table(fill=TRUE)%>% 
+               clean_names())
+
+
+# constituents
+table1 <- djia[[2]] %>% # the second table on the page contains the ticker symbols
+  mutate(date_added = ymd(date_added),
+         
+         # if a stock is listed on NYSE, its symbol is, e.g., NYSE: MMM
+         # We will get prices from yahoo finance which requires just the ticker
+         
+         # if symbol contains "NYSE*", the * being a wildcard
+         # then we jsut drop the first 6 characters in that string
+         ticker = ifelse(str_detect(symbol, "NYSE*"),
+                          str_sub(symbol,7,11),
+                          symbol)
+         )
+
+# we need a vector of strings with just the 30 tickers + SPY
+tickers <- table1 %>% 
+  select(ticker) %>% 
+  pull() %>% # pull() gets them as a sting of characters
+  c("SPY") # and let us add SPY, the SP500 ETF
+
+```
+
+## Arrange data and `glimpse`
+
+```{r get_price_data, message=FALSE, warning=FALSE, cache=TRUE}
+myStocks <- tickers %>% 
+  tq_get(get  = "stock.prices",
+         from = "2000-01-01",
+         to   = "2020-08-31") %>%
+  group_by(symbol) 
+
+glimpse(myStocks) # examine the structure of the resulting data frame
+```
+
+## Calculate returns
+
+```{r calculate_returns, message=FALSE, warning=FALSE, cache=TRUE}
+#calculate daily returns
+myStocks_returns_daily <- myStocks %>%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "daily", 
+               type       = "log",
+               col_rename = "daily_returns",
+               cols = c(nested.col))  
+
+#calculate monthly  returns
+myStocks_returns_monthly <- myStocks %>%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "monthly", 
+               type       = "arithmetic",
+               col_rename = "monthly_returns",
+               cols = c(nested.col)) 
+
+#calculate yearly returns
+myStocks_returns_annual <- myStocks %>%
+  group_by(symbol) %>%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "yearly", 
+               type       = "arithmetic",
+               col_rename = "yearly_returns",
+               cols = c(nested.col))
+```
+
+## Compute stock return stats
+
+```{r summarise_monthly_returns}
+
+summarise_monthly_returns <- myStocks_returns_monthly %>% 
+  summarise(min=min(monthly_returns),
+            max=max(monthly_returns),
+            median=median(monthly_returns),
+            mean = mean(monthly_returns),
+            SD=sd(monthly_returns))
+
+summarise_monthly_returns
+```
+
+## Visualize distribution of returns
+
+```{r density_monthly_returns}
+
+density_monthly_returns <- myStocks_returns_monthly %>% 
+  ggplot(aes(x=monthly_returns))+
+  geom_density() + 
+  facet_wrap(~symbol)
+
+density_monthly_returns
+```
+
+Wow, even a myopic look could tell you that Dow has an unusually flat shape (lower kurtosis) compared to others. It seems therefore the riskiest as possible monthly return span out a further range, and also have many in the negative, with no indication of clear model points. S&P 500 is the least risky as movements of the returns are more concentrated than others.
+
+# Return vs risk plot
+
+```{r risk_return_plot}
+risk_return_plot <- summarise_monthly_returns %>%
+  ggplot(aes(x=SD,y=mean))+
+  ggrepel::geom_text_repel(aes(label = symbol))+
+  labs(x="Risk", y= "Expected Monthly Return")
+
+risk_return_plot
+```
+
+It looks like DOW is the riskiest because it has the least mean/standard deviation ratio, suggesting that the index awards the least return per unit risk born.

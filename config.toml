@@ -77,8 +77,6 @@ disqusShortname = ""
       #name = "Log In"
       #url = "#"
 
-
-
   # Banner section
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
@@ -106,28 +104,28 @@ disqusShortname = ""
       url = "blogs/fuel_efficiency"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
-      url = "blogs/magna"
+      title = "Love for alcohol"
+      subtitle = "Which country loves it the most"
+      image = "wine_dinner.jpg"
+      url = "projects/alcohol"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+      title = "Movie gross and rating"
+      subtitle = "See how your favorite directors and genres perform at box office and ratings"
+      image = "up_in_the_air.jpg"
+      url = "projects/movies"
 
     [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "blogs/ipsum"
+      title = "Covid death likelihood"
+      subtitle = "Does comorbidities or ICU admissions mean a death sentence?"
+      image = "icu.jpg"
+      url = "projects/covid"
 
     [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
-      url = "blogs/ipsum"
+      title = "Stock return analysis"
+      subtitle = "How do NYSE-listed stocks fare?"
+      image = "shanghai.jpg"
+      url = "projects/stock"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]

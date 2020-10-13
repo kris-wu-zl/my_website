@@ -30,20 +30,21 @@ glimpse(mpg)
 ```
 
 We can observe that the dataframe has 234 rows and 11 columns.
-manufacturer specifies the brand.
-model specifies the model name under the brand
-displ means engine displacement, in litres
-year is the year of manufacture of the model
-cyl records the number of cylinders of the engine
-trans specifies type of transmission
-drv means the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd
-cty records the driving fuel efficiency in cities: city miles per gallon
-hwy records the driving fuel efficiency on highways: highway miles per gallon
-fl is fuel type
-class is "type" of car
+- `manufacturer` specifies the brand.
+- `model` specifies the model name under the brand
+- `displ` means engine displacement, in litres
+- `year` is the year of manufacture of the model
+- `cyl` records the number of cylinders of the engine
+- `trans` specifies type of transmission
+- `drv` means the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd
+- `cty` records the driving fuel efficiency in cities: city miles per gallon
+- `hwy` records the driving fuel efficiency on highways: highway miles per gallon
+- `fl` is fuel type
+- `class` is "type" of car
 
 # Visualize relationship between highway fuel efficiency and number of cylinder 
 If you liked the "Need for Speed" feeling of fastness, you probably want more cylinders in the car engine to power a hasty start. What if you are yet environmentally conscious and want a good fuel efficiency as well? Is there a trade-off?
+
 ```{r}
 # Make a scatterplot of hwy vs cyl
 ggplot(data = mpg) + 
@@ -63,11 +64,15 @@ ggplot(data = mpg) +
 
 Hooyay! It looks like compact cars have the highest fuel efficiency. No wonder you see them clouding around in Europe! And SUVs are probably the least efficient behemoths. But if you like to conquer hills, muds, and prairies, have them around. 2 seaters are sports cars. Looks like they are the outliers at high range of displacement. But, consider your pocket and road conditions before purchase!
 
+```{r, echo=FALSE}
+ # Read [Chapter 3 of R for Data Science](http://r4ds.had.co.nz/data-visualisation.html) and complete the following exercises:
 
-Read [Chapter 3 of R for Data Science](http://r4ds.had.co.nz/data-visualisation.html) and complete the following exercises:
+# [3.2.4](http://r4ds.had.co.nz/data-visualisation.html#exercises): Questions 1–5
+# [3.3.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-1): Questions 1–5
+# [3.5.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-2): Questions 1–4
+# [3.6.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-3): Questions 1–5
+# [3.8.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-5): Questions 1 and 2
+```
 
-- [3.2.4](http://r4ds.had.co.nz/data-visualisation.html#exercises): Questions 1–5
-- [3.3.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-1): Questions 1–5
-- [3.5.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-2): Questions 1–4
-- [3.6.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-3): Questions 1–5
-- [3.8.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-5): Questions 1 and 2
+
+

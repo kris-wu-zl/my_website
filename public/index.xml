@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Covid death rates by gender, co-morbidities, and ICU admission</title>
+      <link>/projects/covid/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/covid/</guid>
+      <description>The UK’s 3rd nation-wide pandemics lockdown is scheduled 14th October. It will be very unfortunate to get infected the virus, especially that a cold winter is approaching. Let’s look at the likelihood of death if you get them. The point is not to scare you, but to warn you to be careful!!!
+Load data packages  Download and clean data frame # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.</description>
+    </item>
+    
+    <item>
       <title>Fuel efficiency and engine</title>
       <link>/blogs/fuel_efficiency/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
@@ -19,6 +29,15 @@ Load packages # Load ggplot2, dplyr, and all the other tidyverse packages librar
     </item>
     
     <item>
+      <title>Guess which country drinks the most alcohol</title>
+      <link>/projects/alcohol/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/alcohol/</guid>
+      <description>I was talking to a German friend one day about how good German are at drinking alcohol, he said “the Chinese moutai is nothing”. While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine.</description>
+    </item>
+    
+    <item>
       <title>Hi, I&#39;m Kris Wu</title>
       <link>/blogs/runningbio/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
@@ -26,6 +45,25 @@ Load packages # Load ggplot2, dplyr, and all the other tidyverse packages librar
       <guid>/blogs/runningbio/</guid>
       <description>the Marathoner I have spent almost half of my life away from my family. Having studied in China, Singapore, Europe, the US, I do have acquired a global awareness.
 My proudest achievements are not academics, internships, or photographs taken. It is my jogging journey. I did my first ultra-marathon (50km) at age 20. I consider this the best gift bestowed upon self. Over the years, I did travel and ran a lot.</description>
+    </item>
+    
+    <item>
+      <title>Movie gross and ratings</title>
+      <link>/projects/movies/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/movies/</guid>
+      <description>Load the data packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data and take a look movies &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;movies.csv&amp;quot;)) glimpse(movies) ## Rows: 2,961 ## Columns: 11 ## $ title &amp;lt;chr&amp;gt; &amp;quot;Avatar&amp;quot;, &amp;quot;Titanic&amp;quot;, &amp;quot;Jurassic World&amp;quot;, &amp;quot;The Aveng… ## $ genre &amp;lt;chr&amp;gt; &amp;quot;Action&amp;quot;, &amp;quot;Drama&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, … ## $ director &amp;lt;chr&amp;gt; &amp;quot;James Cameron&amp;quot;, &amp;quot;James Cameron&amp;quot;, &amp;quot;Colin Trevorro… ## $ year &amp;lt;dbl&amp;gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015, 2… ## $ duration &amp;lt;dbl&amp;gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93, … ## $ gross &amp;lt;dbl&amp;gt; 7.</description>
+    </item>
+    
+    <item>
+      <title>Return of Stocks</title>
+      <link>/projects/stock/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/stock/</guid>
+      <description>As a finance student, it is interesting to look at time series data and decide which index to invest. We shall see, for this page, how the NYSE-listed stocks performed.
+Load data packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) First, it is a good practice to see what example industries the stocks belong to.</description>
     </item>
     
     <item>

@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Your description">
+	<meta name="author" content="Kris Wu">
+	<meta name="generator" content="Hugo 0.76.3" />
+	<title>Covid death rates by gender, co-morbidities, and ICU admission &middot; Kris Wu&#39;s Humble Site</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Welcome</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">Blogs</a></li>
+            
+                <li><a href="/blogs/ipsum">Generic Blog</a></li>
+            
+                <li><a href="/elements.html">Elements</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Look at work</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Covid death rates by gender, co-morbidities, and ICU admission</h1>
+                            </header>
+                            
+                            
+
+
+<p>The UK’s 3rd nation-wide pandemics lockdown is scheduled 14th October. It will be very unfortunate to get infected the virus, especially that a cold winter is approaching. Let’s look at the likelihood of death if you get them. The point is not to <strong>scare</strong> you, but to <em>warn</em> you to be careful!!!</p>
+<div id="load-data-packages" class="section level1">
+<h1>Load data packages</h1>
+</div>
+<div id="download-and-clean-data-frame" class="section level1">
+<h1>Download and clean data frame</h1>
+<pre class="r"><code># URL link to CDC to download data
+url &lt;- &quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&quot;
+
+covid_data &lt;- vroom::vroom(url)%&gt;% # If vroom::vroom(url) doesn&#39;t work, use read_csv(url)
+  clean_names()</code></pre>
+</div>
+<div id="graph-of-death-rates-by-gender-and-co-morbidities" class="section level1">
+<h1>Graph of death rates by gender and co-morbidities</h1>
+<p>Are we more likely to die if we have co-morbidities?</p>
+<ol style="list-style-type: decimal">
+<li>by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.</li>
+</ol>
+<pre class="r"><code># Filter and summarize count, for grouped data, with death criteria
+grouped_med_death &lt;- covid_data %&gt;%
+  filter(medcond_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),        # Get rid of &quot;Unknown&quot; or &quot;Missing&quot; medcond_yn
+         death_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),          # Get rid of &quot;Missing&quot; death_yn
+         death_yn != &quot;Unknown&quot;,                 # Get rid of &quot;Unknown&quot; death_yn
+         sex %in% c(&quot;Male&quot;, &quot;Female&quot;),          # Get rid of sex other than &quot;Male&quot; and &quot;Female&quot;
+         age_group != &quot;Unknown&quot;) %&gt;%            # Get rid of age_group &quot;Unknown&quot;
+  group_by(age_group, sex, medcond_yn, death_yn) %&gt;%           # Group, with &quot;Yes&quot; or &quot;No&quot; as separate categories for death_yn
+  summarise(N=n())                              # Obtain count for combinations of categories
+
+# Filter and summarize count, for grouped data, without death criteria
+grouped_med &lt;- covid_data %&gt;%
+  filter(medcond_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
+         death_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
+         death_yn != &quot;Unknown&quot;,
+         sex %in% c(&quot;Male&quot;, &quot;Female&quot;),
+         age_group != &quot;Unknown&quot;) %&gt;%
+  group_by(age_group, sex, medcond_yn) %&gt;%                     # Group, regardless of &quot;Yes&quot; or &quot;No&quot; for death_yn
+  summarise(TN=n())
+
+# Join categorical count and total count, calculate death rate
+plot_comorbidities &lt;- grouped_med_death %&gt;%
+  left_join(grouped_med, by = c(&quot;age_group&quot;, &quot;sex&quot;, &quot;medcond_yn&quot;)) %&gt;%         # Present total count next to sub-count
+  mutate(death_rate = N / TN * 100,                                                    # Create new column of calculated percentage of total
+         medcond_yn = factor(medcond_yn,                                               # Factorize and rename medcond_yn feature
+                             levels = c(&quot;Yes&quot;, &quot;No&quot;),
+                             labels = c(&quot;With comorbidities&quot;,
+                                        &quot;Without comorbidities&quot;))) %&gt;%
+  filter(death_yn == &quot;Yes&quot;)      # Only use death_rate (not non-death rate) before plotting
+
+# Plot
+ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               # Specify data and axes
+  geom_col(fill = &quot;#365383&quot;) +                                                    # Specify chart style (bar) and fill color
+  geom_text(mapping = aes(y = death_rate + 3, label = round(death_rate,1)), size = 4) +  # Specify data labels and their positions
+  coord_flip() +                                                               # Flip axis
+  facet_grid(medcond_yn ~ sex) +                                               # Create a grid format (vertical ~ horizontal)
+  labs(x=&quot;&quot;, 
+       y = &quot;&quot;, 
+       title = &quot;Covid death % by age group, sex and presence of co-morbidities&quot;) +
+  scale_y_continuous(breaks = seq(0, 60, 20),
+                     labels = paste(seq(0, 60, 20), &quot;%&quot;)) +
+  theme_bw()</code></pre>
+<p><img src="/projects/covid_files/figure-html/unnamed-chunk-2-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Look, when you get comorbidities, do not be too optimistic of your health. You are more likely to <em>die</em> than to live!</p>
+</div>
+<div id="graph-of-death-rates-by-gender-and-icu-admissions" class="section level1">
+<h1>Graph of death rates by gender and icu admissions</h1>
+<p>Are we more likely to die if we are admitted to ICUs?</p>
+<pre class="r"><code># Filter and summarize count, for grouped data, with death criteria
+grouped_icu_death &lt;- covid_data %&gt;%
+  filter(icu_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
+         death_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
+         sex %in% c(&quot;Male&quot;, &quot;Female&quot;),
+         age_group != &quot;Unknown&quot;) %&gt;%
+  group_by(age_group, sex, icu_yn, death_yn) %&gt;%
+  summarise(N=n())
+
+# Filter and summarize count, for grouped data, without death criteria
+grouped_icu &lt;- covid_data %&gt;%
+  filter(icu_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
+         death_yn %in% c(&quot;Yes&quot;, &quot;No&quot;),
+         sex %in% c(&quot;Male&quot;, &quot;Female&quot;),
+         age_group != &quot;Unknown&quot;) %&gt;%
+  group_by(age_group, sex, icu_yn) %&gt;%
+  summarise(TN=n())
+
+# Join categorical count and total count, calculate death rate
+plot_icu &lt;- grouped_icu_death %&gt;%
+  left_join(grouped_icu, by = c(&quot;age_group&quot;, &quot;sex&quot;, &quot;icu_yn&quot;)) %&gt;%
+  mutate(death_rate = N / TN * 100,
+         icu_yn = factor(icu_yn, 
+                         levels = c(&quot;Yes&quot;, &quot;No&quot;),
+                         labels = c(&quot;Admited to ICU&quot;,
+                                    &quot;No ICU&quot;))) %&gt;%
+  filter(death_yn == &quot;Yes&quot;)
+
+# Plot
+ggplot(plot_icu, aes(x = age_group, y = death_rate)) +
+  geom_col(fill = &quot;#fc9272&quot;) +
+  geom_text(mapping = aes(y = death_rate + 3, label = round(death_rate,1)), size = 4) +
+  coord_flip() +
+  facet_grid(icu_yn ~ sex) +
+  labs(x=&quot;&quot;, 
+       y = &quot;&quot;, 
+       title = &quot;Covid death % by age group, sex and whether patient was admited to ICU&quot;) +
+  scale_y_continuous(breaks = seq(0, 60, 20),
+                     labels = paste(seq(0, 60, 20), &quot;%&quot;)) +
+  theme_bw()</code></pre>
+<p><img src="/projects/covid_files/figure-html/unnamed-chunk-3-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Look, when you are admitted to an ICU, do not be too optimistic of your health. You are more likely to <em>die</em> than to live! Perhaps the logic is not that ICU treatment hastens your death. It is because you are dying that ICUs accepted you!</p>
+<p>The point is, <em>mask yourself, keep distance</em> !</p>
+</div>
+<div id="acknowledgement-cdc-covid-19-case-surveillance-data." class="section level1">
+<h1>Acknowledgement: <a href="https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf">CDC Covid-19 Case Surveillance Data</a>.</h1>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>
