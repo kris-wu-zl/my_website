@@ -74,8 +74,8 @@
 
 
 <p>I was talking to a German friend one day about how good German are at drinking alcohol, he said “the Chinese moutai is nothing”. While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine. Perhaps this analysis will be a talking point of mine during interviews with Budwiser or Heineken.</p>
-<div id="load-necessary-packages" class="section level1">
-<h1>Load necessary packages</h1>
+<div id="load-necessary-packages" class="section level2">
+<h2>Load necessary packages</h2>
 <pre class="r"><code>library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
@@ -90,13 +90,13 @@ library(rvest)    # scrape websites
 library(purrr)  
 library(lubridate) #to handle dates</code></pre>
 </div>
-<div id="load-data" class="section level1">
-<h1>Load Data</h1>
+<div id="load-data" class="section level2">
+<h2>Load Data</h2>
 <pre class="r"><code>library(fivethirtyeight)
 data(drinks)</code></pre>
 </div>
-<div id="take-a-general-look-at-the-data" class="section level1">
-<h1>Take a general look at the data</h1>
+<div id="take-a-general-look-at-the-data" class="section level2">
+<h2>Take a general look at the data</h2>
 <pre class="r"><code>glimpse(drinks)</code></pre>
 <pre><code>## Rows: 193
 ## Columns: 5
@@ -248,8 +248,8 @@ data(drinks)</code></pre>
 </table>
 <p>Lucky! I have a great data set. Simply plot a bar graph. And the top countries must be chief markets for Carlsberg, Budweiser, Heineken etc.</p>
 </div>
-<div id="countries-by-beer-consumption" class="section level1">
-<h1>Countries by beer consumption</h1>
+<div id="countries-by-beer-consumption" class="section level2">
+<h2>Countries by beer consumption</h2>
 <pre class="r"><code>beer_plot &lt;- drinks %&gt;% 
   arrange(desc(beer_servings)) %&gt;% 
   head(25)
@@ -260,8 +260,8 @@ ggplot(data = beer_plot, mapping = aes(reorder(x=country,beer_servings),y=beer_s
 <p><img src="/projects/alcohol_files/figure-html/beer_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>I did not expect Namibia to come on top! And it is indeed my first time hearing about the country Gabon. But that is just life: realize the reality and change your mentality. Next time, when I visit West Africa, I for sure will get some beers and have fun with the locals.</p>
 </div>
-<div id="countries-by-wine-consumption" class="section level1">
-<h1>Countries by wine consumption</h1>
+<div id="countries-by-wine-consumption" class="section level2">
+<h2>Countries by wine consumption</h2>
 <pre class="r"><code>wine_plot &lt;- drinks %&gt;% 
   arrange(desc(wine_servings)) %&gt;% 
   head(25)
@@ -272,8 +272,8 @@ ggplot(data = wine_plot, mapping = aes(reorder(x=country,wine_servings),y=wine_s
 <p><img src="/projects/alcohol_files/figure-html/wine_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>Interesting, the top 25 wine consuming countries are all European and Hispanic countries. Where is China? Let me propose a sales opportunity to producers at Bordeaux.</p>
 </div>
-<div id="countries-by-spirits-consumption" class="section level1">
-<h1>Countries by spirits consumption</h1>
+<div id="countries-by-spirits-consumption" class="section level2">
+<h2>Countries by spirits consumption</h2>
 <pre class="r"><code>spirit_plot &lt;- drinks %&gt;% 
   arrange(desc(spirit_servings)) %&gt;% 
   head(25)

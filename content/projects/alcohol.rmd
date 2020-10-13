@@ -29,7 +29,8 @@ knitr::opts_chunk$set(
 
 I was talking to a German friend one day about how good German are at drinking alcohol, he said "the Chinese moutai is nothing". While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine. Perhaps this analysis will be a talking point of mine during interviews with Budwiser or Heineken. 
 
-# Load necessary packages
+## Load necessary packages
+
 ```{r load-libraries, warning=FALSE, message=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
@@ -47,14 +48,14 @@ library(lubridate) #to handle dates
 ```
 
 
-# Load Data
+## Load Data
 
 ```{r, load_alcohol_data}
 library(fivethirtyeight)
 data(drinks)
 ```
 
-# Take a general look at the data
+## Take a general look at the data
 
 ```{r glimpse_skim_data}
 glimpse(drinks)
@@ -63,7 +64,7 @@ skim(drinks)
 
 Lucky! I have a great data set. Simply plot a bar graph. And the top countries must be chief markets for Carlsberg, Budweiser, Heineken etc.
 
-# Countries by beer consumption
+## Countries by beer consumption
 
 ```{r beer_plot}
 beer_plot <- drinks %>% 
@@ -78,7 +79,7 @@ ggplot(data = beer_plot, mapping = aes(reorder(x=country,beer_servings),y=beer_s
 
 I did not expect Namibia to come on top! And it is indeed my first time hearing about the country Gabon. But that is just life: realize the reality and change your mentality. Next time, when I visit West Africa, I for sure will get some beers and have fun with the locals.
 
-# Countries by wine consumption
+## Countries by wine consumption
 
 ```{r wine_plot}
 wine_plot <- drinks %>% 
@@ -92,7 +93,7 @@ ggplot(data = wine_plot, mapping = aes(reorder(x=country,wine_servings),y=wine_s
 
 Interesting, the top 25 wine consuming countries are all European and Hispanic countries. Where is China? Let me propose a sales opportunity to producers at Bordeaux.
 
-# Countries by spirits consumption
+## Countries by spirits consumption
 
 ```{r spirit_plot}
 spirit_plot <- drinks %>% 

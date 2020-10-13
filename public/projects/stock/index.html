@@ -95,8 +95,8 @@ library(lubridate) #to handle dates</code></pre>
 <pre class="r"><code>nyse &lt;- read_csv(here::here(&quot;data&quot;,&quot;nyse.csv&quot;))</code></pre>
 <p>First, it is a good practice to see what example industries the stocks belong to.</p>
 </div>
-<div id="number-of-companies-by-sector" class="section level2">
-<h2>Number of companies by sector</h2>
+<div id="construct-a-table-of-number-of-companies-by-sector" class="section level2">
+<h2>Construct a table of number of companies by sector</h2>
 <pre class="r"><code>companies_per_sector &lt;- nyse %&gt;% 
   group_by(sector) %&gt;%
   summarize(count=n()) %&gt;%

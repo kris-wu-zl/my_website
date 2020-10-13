@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Load the data packages
+## Load the data packages
 
 ```{r load-libraries, warning=FALSE, message=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
@@ -46,7 +46,8 @@ library(purrr)
 library(lubridate) #to handle dates
 ```
 
-# Load data and take a look
+## Load data and take a look
+
 ```{r message=FALSE, warning=FALSE}
 movies <- read_csv(here::here("data", "movies.csv"))
 glimpse(movies)
@@ -63,11 +64,11 @@ Besides the obvious variables of `title`, `genre`, `director`, `year`, and `dura
 - `reviews`: the number of reviews for that movie
 - `rating`: IMDB average rating 
 
-# Observe dataframe
+## Observe dataframe
 
 From `skim`, we can see that there no missing values. Groovy. But less straightforward to deduce is the fact that there are duplicates. There is a difference between *Number of rows* and *n_unique* = 2961 - 2907 = 54 duplicates. They ought to be removed.
 
-# Remove duplicates
+## Remove duplicates
 
 ```{r}
 # remove duplicates
@@ -77,7 +78,7 @@ movies %>%
 
 We can conveniently summarise how many movies fall under each category, to get a sense of what genres we are working with.
 
-# Number of movies by genre
+## Number of movies by genre
 
 ```{r}
 # Produce a table with the count of movies by genre, ranked in descending order
@@ -90,7 +91,7 @@ movies_by_genre
 
 It looks like we are mostly dealing with comedies and actions. These are my two favorite genres to watch in cinema! Why are there so many of them? Is it because people like them so movie makers tend to want to make them? Is it profitable to make them?
 
-# Profitability of movies by genre
+## Profitability of movies by genre
 
 ```{r}
 gross_budget <- movies %>% 
@@ -106,7 +107,8 @@ Look, comedy is not as profitable as it may seem. Action movies are amongst the 
 
 For long, I have been wondering who is the most grossing director. Now is a chance to look at this.
 
-# Revenue stats by directors
+## Revenue stats by directors
+
 ```{r}
 director <- movies %>% 
   group_by(director) %>% 
@@ -123,7 +125,8 @@ It looks like Steven Spielberg, from his life-time creations, have made the most
 
 It is rumored that the best movies do not get enough box office. While this is anecdotally true, are we sure this is the general case? Does rating have a correlation with gross revenue?
 
-# Plot of gross vs rating
+## Plot of gross vs rating
+
 ```{r}
 rating_grossing <- 
   ggplot(data = movies, mapping = (aes(x = rating, y = gross))) +
@@ -137,7 +140,7 @@ rating_grossing
 
 It looks a positive correlation over there. Going deeper, we can differentiate the relationship by genre.
 
-# Plot of gross vs rating by genre
+## Plot of gross vs rating by genre
 
 ```{r, gross_on_rating}
 gross_on_rating <- movies %>% 
@@ -180,4 +183,4 @@ gross_on_budget
   
 In general, more budget means more gross, although there are some expensive flops and cheap wins!
 
-# Acknowledgement of data source: IMDB [dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)
+## Acknowledgement of data source: IMDB [dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)

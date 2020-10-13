@@ -74,16 +74,16 @@
 
 
 <p>Although intuitive, one may conduct a statistical analysis on how engine size impact fuel efficiency. In order to do that, we must first call out the packages.</p>
-<div id="load-packages" class="section level1">
-<h1>Load packages</h1>
+<div id="load-packages" class="section level2">
+<h2>Load packages</h2>
 <pre class="r"><code># Load ggplot2, dplyr, and all the other tidyverse packages
 library(tidyverse)  
 library(mosaic)
 library(lubridate)
 library(fivethirtyeight)</code></pre>
 </div>
-<div id="glimpse-dataframe" class="section level1">
-<h1>Glimpse Dataframe</h1>
+<div id="glimpse-dataframe" class="section level2">
+<h2>Glimpse Dataframe</h2>
 <p>Next, it is good practice to take a look at the dataframe mpg using a <code>glimpse</code> function</p>
 <pre class="r"><code># Have a look at how the dataframe is structured
 glimpse(mpg)</code></pre>
@@ -100,21 +100,23 @@ glimpse(mpg)</code></pre>
 ## $ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, …
 ## $ fl           &lt;chr&gt; &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;…
 ## $ class        &lt;chr&gt; &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;…</code></pre>
-<p>We can observe that the dataframe has 234 rows and 11 columns.
-- <code>manufacturer</code> specifies the brand.
-- <code>model</code> specifies the model name under the brand
-- <code>displ</code> means engine displacement, in litres
-- <code>year</code> is the year of manufacture of the model
-- <code>cyl</code> records the number of cylinders of the engine
-- <code>trans</code> specifies type of transmission
-- <code>drv</code> means the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd
-- <code>cty</code> records the driving fuel efficiency in cities: city miles per gallon
-- <code>hwy</code> records the driving fuel efficiency on highways: highway miles per gallon
-- <code>fl</code> is fuel type
-- <code>class</code> is “type” of car</p>
+<p>We can observe that the dataframe has 234 rows and 11 columns. The 11 variables are explained as below:</p>
+<ol style="list-style-type: decimal">
+<li><code>manufacturer</code> specifies the brand.</li>
+<li><code>model</code> specifies the model name under the brand</li>
+<li><code>displ</code> means engine displacement, in litres</li>
+<li><code>year</code> is the year of manufacture of the model</li>
+<li><code>cyl</code> records the number of cylinders of the engine</li>
+<li><code>trans</code> specifies type of transmission</li>
+<li><code>drv</code> means the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd</li>
+<li><code>cty</code> records the driving fuel efficiency in cities: city miles per gallon</li>
+<li><code>hwy</code> records the driving fuel efficiency on highways: highway miles per gallon</li>
+<li><code>fl</code> is fuel type</li>
+<li><code>class</code> is “type” of car</li>
+</ol>
 </div>
-<div id="visualize-relationship-between-highway-fuel-efficiency-and-number-of-cylinder" class="section level1">
-<h1>Visualize relationship between highway fuel efficiency and number of cylinder</h1>
+<div id="visualize-relationship-between-highway-fuel-efficiency-and-number-of-cylinder" class="section level2">
+<h2>Visualize relationship between highway fuel efficiency and number of cylinder</h2>
 <p>If you liked the “Need for Speed” feeling of fastness, you probably want more cylinders in the car engine to power a hasty start. What if you are yet environmentally conscious and want a good fuel efficiency as well? Is there a trade-off?</p>
 <pre class="r"><code># Make a scatterplot of hwy vs cyl
 ggplot(data = mpg) + 
@@ -122,8 +124,8 @@ ggplot(data = mpg) +
 <p><img src="/blogs/fuel_efficiency_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Clearly, there is a trade-off! It looks like hastier accelerations with more cylinders cost more fuels!</p>
 </div>
-<div id="visualize-relationship-between-highway-fuel-efficiency-and-displacement" class="section level1">
-<h1>Visualize relationship between highway fuel efficiency and displacement</h1>
+<div id="visualize-relationship-between-highway-fuel-efficiency-and-displacement" class="section level2">
+<h2>Visualize relationship between highway fuel efficiency and displacement</h2>
 <p>A better approximation of engine power, rather than cylinder number, is engine displacement, i.e. how much fuel gets absorbed into the engine in one round of piston motion. How may fuel efficiency be correlated with engine displacement? Thus, if we want to check our carbon footprint, do we still want to buy cars with immense fuel displacement? Does the type of car matter in our analysis?</p>
 <pre class="r"><code># Make a scatterplot of hwy vs cyl
 ggplot(data = mpg) + 

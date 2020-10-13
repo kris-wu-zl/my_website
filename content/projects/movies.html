@@ -14,8 +14,8 @@ output:
 
 
 
-<div id="load-the-data-packages" class="section level1">
-<h1>Load the data packages</h1>
+<div id="load-the-data-packages" class="section level2">
+<h2>Load the data packages</h2>
 <pre class="r"><code>library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
@@ -30,8 +30,8 @@ library(rvest)    # scrape websites
 library(purrr)  
 library(lubridate) #to handle dates</code></pre>
 </div>
-<div id="load-data-and-take-a-look" class="section level1">
-<h1>Load data and take a look</h1>
+<div id="load-data-and-take-a-look" class="section level2">
+<h2>Load data and take a look</h2>
 <pre class="r"><code>movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
 glimpse(movies)</code></pre>
 <pre><code>## Rows: 2,961
@@ -284,12 +284,12 @@ glimpse(movies)</code></pre>
 <li><code>rating</code>: IMDB average rating</li>
 </ul>
 </div>
-<div id="observe-dataframe" class="section level1">
-<h1>Observe dataframe</h1>
+<div id="observe-dataframe" class="section level2">
+<h2>Observe dataframe</h2>
 <p>From <code>skim</code>, we can see that there no missing values. Groovy. But less straightforward to deduce is the fact that there are duplicates. There is a difference between <em>Number of rows</em> and <em>n_unique</em> = 2961 - 2907 = 54 duplicates. They ought to be removed.</p>
 </div>
-<div id="remove-duplicates" class="section level1">
-<h1>Remove duplicates</h1>
+<div id="remove-duplicates" class="section level2">
+<h2>Remove duplicates</h2>
 <pre class="r"><code># remove duplicates
 movies %&gt;% 
   distinct(title)</code></pre>
@@ -309,8 +309,8 @@ movies %&gt;%
 ## # … with 2,897 more rows</code></pre>
 <p>We can conveniently summarise how many movies fall under each category, to get a sense of what genres we are working with.</p>
 </div>
-<div id="number-of-movies-by-genre" class="section level1">
-<h1>Number of movies by genre</h1>
+<div id="number-of-movies-by-genre" class="section level2">
+<h2>Number of movies by genre</h2>
 <pre class="r"><code># Produce a table with the count of movies by genre, ranked in descending order
 movies_by_genre &lt;- movies %&gt;% 
  group_by(genre) %&gt;% 
@@ -339,8 +339,8 @@ movies_by_genre</code></pre>
 ## 17 Thriller        1</code></pre>
 <p>It looks like we are mostly dealing with comedies and actions. These are my two favorite genres to watch in cinema! Why are there so many of them? Is it because people like them so movie makers tend to want to make them? Is it profitable to make them?</p>
 </div>
-<div id="profitability-of-movies-by-genre" class="section level1">
-<h1>Profitability of movies by genre</h1>
+<div id="profitability-of-movies-by-genre" class="section level2">
+<h2>Profitability of movies by genre</h2>
 <pre class="r"><code>gross_budget &lt;- movies %&gt;% 
  group_by(genre) %&gt;% 
 summarise(budget=mean(budget),
@@ -371,8 +371,8 @@ gross_budget</code></pre>
 <p>Look, comedy is not as profitable as it may seem. Action movies are amongst the least profitable. Movie makers should probably do musicals like la la land to earn extra dimes for the crew.</p>
 <p>For long, I have been wondering who is the most grossing director. Now is a chance to look at this.</p>
 </div>
-<div id="revenue-stats-by-directors" class="section level1">
-<h1>Revenue stats by directors</h1>
+<div id="revenue-stats-by-directors" class="section level2">
+<h2>Revenue stats by directors</h2>
 <pre class="r"><code>director &lt;- movies %&gt;% 
   group_by(director) %&gt;% 
   summarise(gross_revenue=sum(gross),
@@ -403,8 +403,8 @@ director</code></pre>
 <p>It looks like Steven Spielberg, from his life-time creations, have made the most for his producer and distributors. But from <code>mean_revenue</code> and <code>median_revenue</code> it can appear to investors that investing in a George Lucas’ film can be twice as grossing as a Spielberg’s one!</p>
 <p>It is rumored that the best movies do not get enough box office. While this is anecdotally true, are we sure this is the general case? Does rating have a correlation with gross revenue?</p>
 </div>
-<div id="plot-of-gross-vs-rating" class="section level1">
-<h1>Plot of gross vs rating</h1>
+<div id="plot-of-gross-vs-rating" class="section level2">
+<h2>Plot of gross vs rating</h2>
 <pre class="r"><code>rating_grossing &lt;- 
   ggplot(data = movies, mapping = (aes(x = rating, y = gross))) +
   geom_point() +
@@ -416,8 +416,8 @@ rating_grossing</code></pre>
 <p><img src="/projects/movies_files/figure-html/unnamed-chunk-6-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>It looks a positive correlation over there. Going deeper, we can differentiate the relationship by genre.</p>
 </div>
-<div id="plot-of-gross-vs-rating-by-genre" class="section level1">
-<h1>Plot of gross vs rating by genre</h1>
+<div id="plot-of-gross-vs-rating-by-genre" class="section level2">
+<h2>Plot of gross vs rating by genre</h2>
 <pre class="r"><code>gross_on_rating &lt;- movies %&gt;% 
   ggplot(aes(x=rating,y=gross))+
   facet_wrap(~genre)+
@@ -450,7 +450,7 @@ gross_on_fblikes</code></pre>
 gross_on_budget</code></pre>
 <p><img src="/projects/movies_files/figure-html/gross_on_budget-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>In general, more budget means more gross, although there are some expensive flops and cheap wins!</p>
+<div id="acknowledgement-of-data-source-imdb-dataset" class="section level2">
+<h2>Acknowledgement of data source: IMDB <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">dataset</a></h2>
 </div>
-<div id="acknowledgement-of-data-source-imdb-dataset" class="section level1">
-<h1>Acknowledgement of data source: IMDB <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">dataset</a></h1>
 </div>

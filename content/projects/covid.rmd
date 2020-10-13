@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Load data packages
+## Load data packages
 
 ```{r load-libraries, include=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
@@ -45,7 +45,7 @@ library(readxl)
 library(vroom)
 ```
 
-# Download and clean data frame
+## Download and clean data frame
 
 ```{r, cache=TRUE}
 # URL link to CDC to download data
@@ -55,7 +55,7 @@ covid_data <- vroom::vroom(url)%>% # If vroom::vroom(url) doesn't work, use read
   clean_names()
 ```
 
-# Graph of death rates by gender and co-morbidities
+## Graph of death rates by gender and co-morbidities
 
 Are we more likely to die if we have co-morbidities?
 
@@ -108,7 +108,7 @@ ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               #
 
 Look, when you get comorbidities, do not be too optimistic of your health. You are more likely to *die* than to live!
 
-# Graph of death rates by gender and icu admissions
+## Graph of death rates by gender and icu admissions
 
 Are we more likely to die if we are admitted to ICUs?
 
@@ -159,5 +159,5 @@ Look, when you are admitted to an ICU, do not be too optimistic of your health. 
 
 The point is, *mask yourself, keep distance* !
 
-# Acknowledgement: [CDC Covid-19 Case Surveillance Data](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf). 
+## Acknowledgement: [CDC Covid-19 Case Surveillance Data](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf). 
 

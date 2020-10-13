@@ -57,7 +57,7 @@ nyse <- read_csv(here::here("data","nyse.csv"))
 
 First, it is a good practice to see what example industries the stocks belong to.
 
-## Number of companies by sector 
+## Construct a table of number of companies by sector 
 
 ```{r}
 companies_per_sector <- nyse %>% 

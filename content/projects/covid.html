@@ -15,19 +15,19 @@ output:
 
 
 <p>The UK’s 3rd nation-wide pandemics lockdown is scheduled 14th October. It will be very unfortunate to get infected the virus, especially that a cold winter is approaching. Let’s look at the likelihood of death if you get them. The point is not to <strong>scare</strong> you, but to <em>warn</em> you to be careful!!!</p>
-<div id="load-data-packages" class="section level1">
-<h1>Load data packages</h1>
+<div id="load-data-packages" class="section level2">
+<h2>Load data packages</h2>
 </div>
-<div id="download-and-clean-data-frame" class="section level1">
-<h1>Download and clean data frame</h1>
+<div id="download-and-clean-data-frame" class="section level2">
+<h2>Download and clean data frame</h2>
 <pre class="r"><code># URL link to CDC to download data
 url &lt;- &quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&quot;
 
 covid_data &lt;- vroom::vroom(url)%&gt;% # If vroom::vroom(url) doesn&#39;t work, use read_csv(url)
   clean_names()</code></pre>
 </div>
-<div id="graph-of-death-rates-by-gender-and-co-morbidities" class="section level1">
-<h1>Graph of death rates by gender and co-morbidities</h1>
+<div id="graph-of-death-rates-by-gender-and-co-morbidities" class="section level2">
+<h2>Graph of death rates by gender and co-morbidities</h2>
 <p>Are we more likely to die if we have co-morbidities?</p>
 <ol style="list-style-type: decimal">
 <li>by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.</li>
@@ -77,8 +77,8 @@ ggplot(plot_comorbidities, aes(x = age_group, y = death_rate)) +               #
 <p><img src="/projects/covid_files/figure-html/unnamed-chunk-2-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Look, when you get comorbidities, do not be too optimistic of your health. You are more likely to <em>die</em> than to live!</p>
 </div>
-<div id="graph-of-death-rates-by-gender-and-icu-admissions" class="section level1">
-<h1>Graph of death rates by gender and icu admissions</h1>
+<div id="graph-of-death-rates-by-gender-and-icu-admissions" class="section level2">
+<h2>Graph of death rates by gender and icu admissions</h2>
 <p>Are we more likely to die if we are admitted to ICUs?</p>
 <pre class="r"><code># Filter and summarize count, for grouped data, with death criteria
 grouped_icu_death &lt;- covid_data %&gt;%
@@ -124,6 +124,6 @@ ggplot(plot_icu, aes(x = age_group, y = death_rate)) +
 <p>Look, when you are admitted to an ICU, do not be too optimistic of your health. You are more likely to <em>die</em> than to live! Perhaps the logic is not that ICU treatment hastens your death. It is because you are dying that ICUs accepted you!</p>
 <p>The point is, <em>mask yourself, keep distance</em> !</p>
 </div>
-<div id="acknowledgement-cdc-covid-19-case-surveillance-data." class="section level1">
-<h1>Acknowledgement: <a href="https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf">CDC Covid-19 Case Surveillance Data</a>.</h1>
+<div id="acknowledgement-cdc-covid-19-case-surveillance-data." class="section level2">
+<h2>Acknowledgement: <a href="https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf">CDC Covid-19 Case Surveillance Data</a>.</h2>
 </div>
