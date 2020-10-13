@@ -8,13 +8,13 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Covid death rates by gender, co-morbidities, and ICU admission</title>
+      <title>Are co-morbidities and ICU admissions a death sentence?</title>
       <link>/projects/covid/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/covid/</guid>
       <description>The UK’s 3rd nation-wide pandemics lockdown is scheduled 14th October. It will be very unfortunate to get infected the virus, especially that a cold winter is approaching. Let’s look at the likelihood of death if you get them. The point is not to scare you, but to warn you to be careful!!!
-Load data packages  Download and clean data frame # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.</description>
+Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(here) library(skimr) library(janitor) library(httr) library(readxl) library(vroom)  Download and clean data frame # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.</description>
     </item>
     
     <item>
@@ -26,15 +26,6 @@ Load data packages  Download and clean data frame # URL link to CDC to download 
       <description>Although intuitive, one may conduct a statistical analysis on how engine size impact fuel efficiency. In order to do that, we must first call out the packages.
 Load packages # Load ggplot2, dplyr, and all the other tidyverse packages library(tidyverse) library(mosaic) library(lubridate) library(fivethirtyeight)  Glimpse Dataframe Next, it is good practice to take a look at the dataframe mpg using a glimpse function
 # Have a look at how the dataframe is structured glimpse(mpg) ## Rows: 234 ## Columns: 11 ## $ manufacturer &amp;lt;chr&amp;gt; &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, &amp;quot;audi&amp;quot;, … ## $ model &amp;lt;chr&amp;gt; &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4&amp;quot;, &amp;quot;a4 quattro&amp;quot;, … ## $ displ &amp;lt;dbl&amp;gt; 1.</description>
-    </item>
-    
-    <item>
-      <title>Guess which country drinks the most alcohol</title>
-      <link>/projects/alcohol/</link>
-      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/alcohol/</guid>
-      <description>I was talking to a German friend one day about how good German are at drinking alcohol, he said “the Chinese moutai is nothing”. While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine.</description>
     </item>
     
     <item>
@@ -53,17 +44,27 @@ My proudest achievements are not academics, internships, or photographs taken. I
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/movies/</guid>
-      <description>Load the data packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data and take a look movies &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;movies.csv&amp;quot;)) glimpse(movies) ## Rows: 2,961 ## Columns: 11 ## $ title &amp;lt;chr&amp;gt; &amp;quot;Avatar&amp;quot;, &amp;quot;Titanic&amp;quot;, &amp;quot;Jurassic World&amp;quot;, &amp;quot;The Aveng… ## $ genre &amp;lt;chr&amp;gt; &amp;quot;Action&amp;quot;, &amp;quot;Drama&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, … ## $ director &amp;lt;chr&amp;gt; &amp;quot;James Cameron&amp;quot;, &amp;quot;James Cameron&amp;quot;, &amp;quot;Colin Trevorro… ## $ year &amp;lt;dbl&amp;gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015, 2… ## $ duration &amp;lt;dbl&amp;gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93, … ## $ gross &amp;lt;dbl&amp;gt; 7.</description>
+      <description>I am a fan of movies, not only movies themselves but the numbers of how they have performed, both in ratings and box office. Nonetheless, this is my first ever attempt to look at movie data with R!
+Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data and take a look movies &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;movies.</description>
     </item>
     
     <item>
-      <title>Return of Stocks</title>
+      <title>Return of stocks</title>
       <link>/projects/stock/</link>
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/stock/</guid>
       <description>As a finance student, it is interesting to look at time series data and decide which index to invest. We shall see, for this page, how the NYSE-listed stocks performed.
-Load data packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) First, it is a good practice to see what example industries the stocks belong to.</description>
+Load packages library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packages library(mosaic) library(ggthemes) library(lubridate) library(fivethirtyeight) library(here) library(skimr) library(janitor) library(vroom) library(tidyquant) library(rvest) # scrape websites library(purrr) library(lubridate) #to handle dates  Load data nyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;)) First, it is a good practice to see what example industries the stocks belong to.</description>
+    </item>
+    
+    <item>
+      <title>Which country is the best sales destination for alcohol?</title>
+      <link>/projects/alcohol/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/alcohol/</guid>
+      <description>I was talking to a German friend one day about how good German are at drinking alcohol, he said “the Chinese moutai is nothing”. While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine.</description>
     </item>
     
     <item>

@@ -1,5 +1,5 @@
 ---
-title: "Return of Stocks"
+title: "Return of stocks"
 author: "Kris"
 date: "`r Sys.Date()`"
 output:
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Load data packages
+## Load packages
 
 ```{r load-libraries, warning=FALSE, message=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages

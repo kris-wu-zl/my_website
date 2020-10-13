@@ -1,5 +1,5 @@
 ---
-title: "Covid death rates by gender, co-morbidities, and ICU admission"
+title: "Are co-morbidities and ICU admissions a death sentence?"
 author: "Kris"
 date: "`r Sys.Date()`"
 output:
@@ -30,9 +30,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Load data packages
+## Load packages
 
-```{r load-libraries, include=FALSE}
+```{r load-libraries}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)

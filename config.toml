@@ -92,38 +92,38 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Kris the runner"
-      subtitle = "He ran a 50km as a birthday gift to self"
+      title = "the Runner"
+      subtitle = "Kris ran a 50km as a birthday gift to self."
       image = "ultramarathon.jpg"
       url = "blogs/runningbio"
 
     [[params.tiles.showcase]]
       title = "Fuel efficiency and engine"
-      subtitle = "The trade-off to take between power and environmental protection"
+      subtitle = "The trade-off between power and environmental protection."
       image = "trailer.jpg"
       url = "blogs/fuel_efficiency"
 
     [[params.tiles.showcase]]
       title = "Love for alcohol"
-      subtitle = "Which country loves it the most"
+      subtitle = "Which country loves it the most?"
       image = "wine_dinner.jpg"
       url = "projects/alcohol"
 
     [[params.tiles.showcase]]
       title = "Movie gross and rating"
-      subtitle = "See how your favorite directors and genres perform at box office and ratings"
+      subtitle = "See how your favorite directors and genres perform at box office and ratings."
       image = "up_in_the_air.jpg"
       url = "projects/movies"
 
     [[params.tiles.showcase]]
       title = "Covid death likelihood"
-      subtitle = "Does comorbidities or ICU admissions mean a death sentence?"
+      subtitle = "Do comorbidities or ICU admissions mean a death sentence?"
       image = "icu.jpg"
       url = "projects/covid"
 
     [[params.tiles.showcase]]
       title = "Stock return analysis"
-      subtitle = "How do NYSE-listed stocks fare?"
+      subtitle = "How did NYSE-listed stocks fare?"
       image = "shanghai.jpg"
       url = "projects/stock"
     # You can make more showcases by copy and pasting the code above

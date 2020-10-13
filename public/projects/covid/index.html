@@ -8,7 +8,7 @@
 	<meta name="description" content="Your description">
 	<meta name="author" content="Kris Wu">
 	<meta name="generator" content="Hugo 0.76.3" />
-	<title>Covid death rates by gender, co-morbidities, and ICU admission &middot; Kris Wu&#39;s Humble Site</title>
+	<title>Are co-morbidities and ICU admissions a death sentence? &middot; Kris Wu&#39;s Humble Site</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -67,15 +67,25 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Covid death rates by gender, co-morbidities, and ICU admission</h1>
+                                <h1>Are co-morbidities and ICU admissions a death sentence?</h1>
                             </header>
                             
                             
 
 
 <p>The UK’s 3rd nation-wide pandemics lockdown is scheduled 14th October. It will be very unfortunate to get infected the virus, especially that a cold winter is approaching. Let’s look at the likelihood of death if you get them. The point is not to <strong>scare</strong> you, but to <em>warn</em> you to be careful!!!</p>
-<div id="load-data-packages" class="section level2">
-<h2>Load data packages</h2>
+<div id="load-packages" class="section level2">
+<h2>Load packages</h2>
+<pre class="r"><code>library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)</code></pre>
 </div>
 <div id="download-and-clean-data-frame" class="section level2">
 <h2>Download and clean data frame</h2>

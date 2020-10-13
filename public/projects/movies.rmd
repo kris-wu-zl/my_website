@@ -28,7 +28,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Load the data packages
+I am a fan of movies, not only movies themselves but the numbers of how they have performed, both in ratings and box office. Nonetheless, this is my first ever attempt to look at movie data with R!
+
+## Load packages
 
 ```{r load-libraries, warning=FALSE, message=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
@@ -183,4 +185,4 @@ gross_on_budget
   
 In general, more budget means more gross, although there are some expensive flops and cheap wins!
 
-## Acknowledgement of data source: IMDB [dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)
+## Acknowledgement of data source: [IMDB dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)

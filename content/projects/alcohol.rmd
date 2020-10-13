@@ -1,5 +1,5 @@
 ---
-title: "Guess which country drinks the most alcohol"
+title: "Which country is the best sales destination for alcohol?"
 author: "Kris"
 date: "`r Sys.Date()`"
 output:
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 I was talking to a German friend one day about how good German are at drinking alcohol, he said "the Chinese moutai is nothing". While taste is kind of personal, I did not feel offended as we were drinking and telling nonsense as well. That was back in Denmark where student orientations typically have challenge activities such as drinking 6 litres of beer. Now, I am intrigued to find out how nationals of different countries love beer, spirits or wine. Perhaps this analysis will be a talking point of mine during interviews with Budwiser or Heineken. 
 
-## Load necessary packages
+## Load packages
 
 ```{r load-libraries, warning=FALSE, message=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
