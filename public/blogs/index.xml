@@ -19,21 +19,13 @@ Load packages # Load ggplot2, dplyr, and all the other tidyverse packages librar
     </item>
     
     <item>
-      <title>Tempus</title>
-      <link>/blogs/tempus/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
+      <title>Hi, I&#39;m Kris Wu</title>
+      <link>/blogs/blog6/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blogs/tempus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Magna</title>
-      <link>/blogs/magna/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
-      
-      <guid>/blogs/magna/</guid>
-      <description></description>
+      <guid>/blogs/blog6/</guid>
+      <description>the Marathoner I have spent almost half of my life away from my family. Having studied in China, Singapore, Europe, the US, I do have acquired a global awareness.
+My proudest achievements are not academics, internships, or photographs taken. It is my jogging journey. I did my first ultra-marathon (50km) at age 20. I consider this the best gift bestowed upon self. Over the years, I did travel and ran a lot.</description>
     </item>
     
   </channel>
