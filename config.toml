@@ -138,7 +138,7 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Staying Positive!"
+    title = "Your message is welcomed!"
     subtitle = """I clearly know that I appear like a novice making up this page. 
     But I am still motivated to improve my R skills. After all, data science and programming are competencies of the 21st century,
     I do not want to lag behind in flows of time. We will see each other soon in better pages!
